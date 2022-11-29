@@ -159,7 +159,7 @@ class join extends JFrame implements ActionListener {
 							pstmt.setString(2, PW_S);
 							pstmt.setString(3, "720");
 							pstmt.setString(4, "312");
-							pstmt.setInt(5, 150);
+							pstmt.setInt(5, 200);
 							pstmt.setInt(6, 0);
 							pstmt.setInt(7, 0);
 							pstmt.setInt(8, 0);

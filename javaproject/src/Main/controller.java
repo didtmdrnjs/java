@@ -38,7 +38,6 @@ public class controller extends KeyAdapter implements Runnable{
 	Start repaint = new Start("");
 	File clone = new File("textfile/clone.txt");
 
-	@SuppressWarnings("static-access")
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -72,7 +71,6 @@ public class controller extends KeyAdapter implements Runnable{
 			c = true;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_H) {
-			present_login_userData ID = new present_login_userData();
 			
 			String str = "";
 			String crop;
@@ -217,57 +215,47 @@ public class controller extends KeyAdapter implements Runnable{
 				LocalDateTime now = LocalDateTime.now();
 				try {
 					BufferedWriter crops = new BufferedWriter(new FileWriter(file_data.text, true));
-					if (Start.pos[0] < 1290 || Start.pos[1] > 243) {
+//					if (Start.pos[0] < 1290 || Start.pos[1] > 243) {
 						switch(Start.player_lotation) {
 			    		case "up":
 			    			switch(crop) {
 			    			case "to":
-			    				if (Start.pos[1] - 71 > 243 || Start.pos[0] + 163 < 1290) {
+			    				if ((Start.pos[1] - 71 > 243 || Start.pos[0] + 163 < 1290) && Start.gold - 15 >= 0) {
 				    				xpos = String.valueOf(Start.pos[0] - 27);
 					    			ypos = String.valueOf(Start.pos[1] - 71);
-					    			if (Start.gold - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "wh":
-			    				if (Start.pos[1] - 87 > 243 || Start.pos[0] + 109 < 1290) {
+			    				if ((Start.pos[1] - 87 > 243 || Start.pos[0] + 109 < 1290) && Start.gold - 15 >= 0) {
 				    				xpos = String.valueOf(Start.pos[0]);
 					    			ypos = String.valueOf(Start.pos[1] - 87);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "st":
-			    				if (Start.pos[1] - 31 > 243 || Start.pos[0] + 133 < 1290) {
+			    				if ((Start.pos[1] - 31 > 243 || Start.pos[0] + 133 < 1290) && Start.gold - 15 >= 0) {
 				    				xpos = String.valueOf(Start.pos[0] - 12);
 					    			ypos = String.valueOf(Start.pos[1] - 31);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "sh":
-			    				if (Start.pos[1] - 30 > 243 || Start.pos[0] + 153 < 1290) {
+			    				if ((Start.pos[1] - 30 > 243 || Start.pos[0] + 153 < 1290) && Start.gold - 15 >= 0) {
 				    				xpos = String.valueOf(Start.pos[0] - 22);
 					    			ypos = String.valueOf(Start.pos[1] - 71);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "co":
-			    				if (Start.pos[1] - 84 > 243 || Start.pos[0] + 109 < 1290) {
+			    				if ((Start.pos[1] - 84 > 243 || Start.pos[0] + 109 < 1290) && Start.gold - 15 >= 0) {
 				    				xpos = String.valueOf(Start.pos[0]);
 				    				ypos = String.valueOf(Start.pos[1] - 84);
-				    				if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+				    				Start.gold -= 15;
 			    				}
 			    				break;
 			    			case "eg":
-			    				if (Start.pos[1] - 85 > 243 || Start.pos[0] + 173 < 1290 && chicken_n[0] < 2) {
+			    				if ((Start.pos[1] - 85 > 243 || Start.pos[0] + 173 < 1290 && chicken_n[0] < 2) && Start.gold - 60 >= 0) {
 			    					xpos = String.valueOf(Start.pos[0] - 32);
 				    				ypos = String.valueOf(Start.pos[1] - 85);
 				    				chicken_n[0]++;
@@ -275,13 +263,11 @@ public class controller extends KeyAdapter implements Runnable{
 				    				chicken_y[chicken_n[0] - 1] = Start.pos[1] - 85;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				chicken_t[chicken_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			case "mi":
-			    				if (Start.pos[1] - 60 > 243 || Start.pos[0] + 109 < 1290 && cow_n[0] < 2) {
+			    				if ((Start.pos[1] - 60 > 243 || Start.pos[0] + 109 < 1290 && cow_n[0] < 2) && Start.gold - 60 >= 0) {
 			    					xpos = String.valueOf(Start.pos[0] - 47);
 				    				ypos = String.valueOf(Start.pos[1] - 60);
 				    				cow_n[0]++;
@@ -289,13 +275,11 @@ public class controller extends KeyAdapter implements Runnable{
 				    				cow_y[cow_n[0] - 1] = Start.pos[1] - 60;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				cow_t[cow_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			case "ho":
-			    				if (Start.pos[1] - 60 > 243 ||  Start.pos[0] + 109 < 1290 && honey_house_n[0] < 2) {
+			    				if ((Start.pos[1] - 60 > 243 ||  Start.pos[0] + 109 < 1290 && honey_house_n[0] < 2) && Start.gold - 60 >= 0) {
 			    					xpos = String.valueOf(Start.pos[0] - 36);
 				    				ypos = String.valueOf(Start.pos[1] - 60);
 				    				honey_house_n[0]++;
@@ -303,9 +287,7 @@ public class controller extends KeyAdapter implements Runnable{
 				    				honey_house_y[honey_house_n[0] - 1] = Start.pos[1] - 60;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				honey_house_t[honey_house_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			}
@@ -313,52 +295,42 @@ public class controller extends KeyAdapter implements Runnable{
 			    		case "down":
 			    			switch(crop) {
 			    			case "to":
-			    				if (Start.pos[1] + 171 < 624 || Start.pos[0] - 104 > 200) {
+			    				if ((Start.pos[1] + 171 < 624 || Start.pos[0] - 104 > 200) && Start.gold - 15 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] - 27);
 					    			ypos = String.valueOf(Start.pos[1] + 50);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "wh":
-			    				if (Start.pos[1] + 187 < 624 || Start.pos[0] - 50 > 200) {
+			    				if ((Start.pos[1] + 187 < 624 || Start.pos[0] - 50 > 200) && Start.gold - 15 >= 0) {
 				    				xpos = String.valueOf(Start.pos[0]);
 					    			ypos = String.valueOf(Start.pos[1] + 50);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "st":
-			    				if (Start.pos[1] + 131 < 624 || Start.pos[0] - 74 > 200) {
+			    				if ((Start.pos[1] + 131 < 624 || Start.pos[0] - 74 > 200) && Start.gold - 15 >= 0) {
 				    				xpos = String.valueOf(Start.pos[0] - 12);
 					    			ypos = String.valueOf(Start.pos[1] + 50);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "sh":
-			    				if (Start.pos[1] + 130 < 624 || Start.pos[0] - 94 > 200) {
+			    				if ((Start.pos[1] + 130 < 624 || Start.pos[0] - 94 > 200) && Start.gold - 15 >= 0) {
 				    				xpos = String.valueOf(Start.pos[0] - 22);
 					    			ypos = String.valueOf(Start.pos[1] + 50);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "co":
-			    				if (Start.pos[1] + 184 < 624 || Start.pos[0] - 50 > 200) {
+			    				if ((Start.pos[1] + 184 < 624 || Start.pos[0] - 50 > 200) && Start.gold - 15 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0]);
 				    				ypos = String.valueOf(Start.pos[1] + 50);
-				    				if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+				    				Start.gold -= 15;
 			    				}
 			    				break;
 			    			case "eg":
-			    				if (Start.pos[1] + 185 < 624 || Start.pos[0] - 114 > 200 && chicken_n[0] < 2) {
+			    				if ((Start.pos[1] + 185 < 624 || Start.pos[0] - 114 > 200 && chicken_n[0] < 2) && Start.gold - 60 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] - 32);
 				    				ypos = String.valueOf(Start.pos[1] + 50);
 				    				chicken_n[0]++;
@@ -366,13 +338,11 @@ public class controller extends KeyAdapter implements Runnable{
 				    				chicken_y[chicken_n[0] - 1] = Start.pos[1] + 50;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				chicken_t[chicken_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			case "mi":
-			    				if (Start.pos[1] + 160 < 624 || Start.pos[0] - 145 > 200 && cow_n[0] < 2) {
+			    				if ((Start.pos[1] + 160 < 624 || Start.pos[0] - 145 > 200 && cow_n[0] < 2) && Start.gold - 60 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] - 47);
 				    				ypos = String.valueOf(Start.pos[1] + 50);
 				    				cow_n[0]++;
@@ -380,13 +350,11 @@ public class controller extends KeyAdapter implements Runnable{
 				    				cow_y[cow_n[0] - 1] = Start.pos[1] + 50;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				cow_t[cow_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			case "ho":
-			    				if (Start.pos[1] + 160 < 624 || Start.pos[0] - 122 > 200 && honey_house_n[0] < 2) {
+			    				if ((Start.pos[1] + 160 < 624 || Start.pos[0] - 122 > 200) && honey_house_n[0] < 2 && Start.gold - 60 >= 0) {
 			    					xpos = String.valueOf(Start.pos[0] - 36);
 			    					ypos = String.valueOf(Start.pos[1] + 50);
 			    					honey_house_n[0]++;
@@ -394,9 +362,7 @@ public class controller extends KeyAdapter implements Runnable{
 				    				honey_house_y[honey_house_n[0] - 1] = Start.pos[1] + 50;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				honey_house_t[honey_house_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			}
@@ -405,52 +371,42 @@ public class controller extends KeyAdapter implements Runnable{
 			    		case "down-left":
 			    			switch(crop) {
 			    			case "to":
-			    				if (Start.pos[1] + 171 < 624 || Start.pos[0] - 104 > 200) {
+			    				if ((Start.pos[1] + 171 < 624 || Start.pos[0] - 104 > 200) && Start.gold - 15 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] - 104);
 					    			ypos = String.valueOf(Start.pos[1] - 20);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "wh":
-			    				if (Start.pos[1] + 187 < 624 || Start.pos[0] - 50 > 200) {
+			    				if ((Start.pos[1] + 187 < 624 || Start.pos[0] - 50 > 200) && Start.gold - 15 >= 0) {
 				    				xpos = String.valueOf(Start.pos[0] - 50);
 					    			ypos = String.valueOf(Start.pos[1] - 28);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "st":
-			    				if (Start.pos[1] + 131 < 624 || Start.pos[0] - 74 > 200) {
+			    				if ((Start.pos[1] + 131 < 624 || Start.pos[0] - 74 > 200) && Start.gold - 15 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] - 74);
 					    			ypos = String.valueOf(Start.pos[1] - 1);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "sh":
-			    				if (Start.pos[1] + 130 < 624 || Start.pos[0] - 94 > 200) {
+			    				if ((Start.pos[1] + 130 < 624 || Start.pos[0] - 94 > 200) && Start.gold - 15 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] - 94);
 					    			ypos = String.valueOf(Start.pos[1]);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "co":
-			    				if (Start.pos[1] + 184 < 624 || Start.pos[0] - 50 > 200) {
+			    				if ((Start.pos[1] + 184 < 624 || Start.pos[0] - 50 > 200) && Start.gold - 15 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] - 50);
 				    				ypos = String.valueOf(Start.pos[1] - 27);
-				    				if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+				    				Start.gold -= 15;
 				    			}
 			    				break;
 			    			case "eg":
-			    				if (Start.pos[1] + 185 < 624 || Start.pos[0] - 114 > 200 && chicken_n[0] < 2) {
+			    				if ((Start.pos[1] + 185 < 624 || Start.pos[0] - 114 > 200) && chicken_n[0] < 2 && Start.gold - 60 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] - 114);
 				    				ypos = String.valueOf(Start.pos[1] - 22);
 				    				chicken_n[0]++;
@@ -458,13 +414,11 @@ public class controller extends KeyAdapter implements Runnable{
 				    				chicken_y[chicken_n[0] - 1] = Start.pos[1] - 22;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				chicken_t[chicken_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			case "mi":
-			    				if (Start.pos[1] + 160 < 624 || Start.pos[0] - 145 > 200 && cow_n[0] < 2) {
+			    				if ((Start.pos[1] + 160 < 624 || Start.pos[0] - 145 > 200) && cow_n[0] < 2 && Start.gold - 60 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] - 145);
 				    				ypos = String.valueOf(Start.pos[1] - 15);
 				    				cow_n[0]++;
@@ -472,13 +426,11 @@ public class controller extends KeyAdapter implements Runnable{
 				    				cow_y[cow_n[0] - 1] = Start.pos[1] - 15;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				cow_t[cow_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			case "ho":
-			    				if (Start.pos[1] + 160 < 624 || Start.pos[0] - 122 > 200 && honey_house_n[0] < 2) {
+			    				if ((Start.pos[1] + 160 < 624 || Start.pos[0] - 122 > 200) && honey_house_n[0] < 2 && Start.gold - 60 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] - 122);
 				    				ypos = String.valueOf(Start.pos[1] - 15);
 				    				honey_house_n[0]++;
@@ -486,9 +438,7 @@ public class controller extends KeyAdapter implements Runnable{
 				    				honey_house_y[honey_house_n[0] - 1] = Start.pos[1] - 15;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				honey_house_t[honey_house_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			}
@@ -497,52 +447,42 @@ public class controller extends KeyAdapter implements Runnable{
 			    		case "down-right":
 			    			switch(crop) {
 			    			case "to":
-			    				if (Start.pos[1] - 71 > 243 || Start.pos[0] + 163 < 1290) {
+			    				if ((Start.pos[1] - 71 > 243 || Start.pos[0] + 163 < 1290) && Start.gold - 15 >= 0) {
 			    					xpos = String.valueOf(Start.pos[0] + 59);
 				    				ypos = String.valueOf(Start.pos[1] - 20);
-				    				if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+				    				Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "wh":
-			    				if (Start.pos[1] - 87 > 243 || Start.pos[0] + 109 < 1290) {
+			    				if ((Start.pos[1] - 87 > 243 || Start.pos[0] + 109 < 1290) && Start.gold - 15 >= 0) {
 				    				xpos = String.valueOf(Start.pos[0] + 59);
 					    			ypos = String.valueOf(Start.pos[1] - 28);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "st":
-			    				if (Start.pos[1] - 31 > 243 || Start.pos[0] + 133 < 1290) {
+			    				if ((Start.pos[1] - 31 > 243 || Start.pos[0] + 133 < 1290) && Start.gold - 15 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] + 59);
 					    			ypos = String.valueOf(Start.pos[1] - 1);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "sh":
-			    				if (Start.pos[1] - 30 > 243 || Start.pos[0] + 153 < 1290) {
+			    				if ((Start.pos[1] - 30 > 243 || Start.pos[0] + 153 < 1290) && Start.gold - 15 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] + 59);
 					    			ypos = String.valueOf(Start.pos[1]);
-					    			if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+					    			Start.gold -= 15;
 			    				}
 				    			break;
 			    			case "co":
-			    				if (Start.pos[1] - 84 > 243 || Start.pos[0] + 109 < 1290) {
+			    				if ((Start.pos[1] - 84 > 243 || Start.pos[0] + 109 < 1290) && Start.gold - 15 >= 0) {
 					    			xpos = String.valueOf(Start.pos[0] + 59);
 				    				ypos = String.valueOf(Start.pos[1] - 27);
-				    				if (Integer.valueOf(Start.gold) - 15 > 0) {
-					    				Start.gold -= 15;
-					    			}
+				    				Start.gold -= 15;
 			    				}
 			    				break;
 			    			case "eg":
-			    				if (Start.pos[1] - 85 > 243 || Start.pos[0] + 173 < 1290 && chicken_n[0] < 2) {
+			    				if ((Start.pos[1] - 85 > 243 || Start.pos[0] + 173 < 1290) && chicken_n[0] < 2 && Start.gold - 60 >= 0) {
 			    					xpos = String.valueOf(Start.pos[0] + 59);
 				    				ypos = String.valueOf(Start.pos[1] - 22);
 				    				chicken_n[0]++;
@@ -550,13 +490,11 @@ public class controller extends KeyAdapter implements Runnable{
 				    				chicken_y[chicken_n[0] - 1] = Start.pos[1] - 22;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				chicken_t[chicken_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			case "mi":
-			    				if (Start.pos[1] - 60 > 243 || Start.pos[0] + 109 < 1290 && cow_n[0] < 2) {
+			    				if ((Start.pos[1] - 60 > 243 || Start.pos[0] + 109 < 1290) && cow_n[0] < 2 && Start.gold - 60 >= 0) {
 			    					xpos = String.valueOf(Start.pos[0] + 59);
 				    				ypos = String.valueOf(Start.pos[1] - 15);
 				    				cow_n[0]++;
@@ -564,13 +502,11 @@ public class controller extends KeyAdapter implements Runnable{
 				    				cow_y[cow_n[0] - 1] = Start.pos[1] - 15;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				cow_t[cow_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-				    				if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			case "ho":
-			    				if (Start.pos[1] - 60 > 243 ||  Start.pos[0] + 109 < 1290 && honey_house_n[0] < 2) {
+			    				if ((Start.pos[1] - 60 > 243 ||  Start.pos[0] + 109 < 1290) && honey_house_n[0] < 2 && Start.gold - 60 >= 0) {
 			    					xpos = String.valueOf(Start.pos[0] + 59);
 				    				ypos = String.valueOf(Start.pos[1] - 15);
 				    				honey_house_n[0]++;
@@ -578,9 +514,7 @@ public class controller extends KeyAdapter implements Runnable{
 				    				honey_house_y[honey_house_n[0] - 1] = Start.pos[1] - 15;
 				    				formated = now.format(DateTimeFormatter.ofPattern("yyyy MM dd HH mm ss"));
 				    				honey_house_t[honey_house_n[0] - 1] = new SimpleDateFormat("yyyy MM dd HH mm ss").parse(formated);
-					    			if (Integer.valueOf(Start.gold) - 60 > 0) {
-					    				Start.gold -= 60;
-					    			}
+				    				Start.gold -= 60;
 			    				}
 			    				break;
 			    			}
@@ -642,7 +576,7 @@ public class controller extends KeyAdapter implements Runnable{
 		    			}
 						crops.close();
 					}
-				}
+//				}
 				catch(Exception e1) {
 					e1.printStackTrace();
 				}

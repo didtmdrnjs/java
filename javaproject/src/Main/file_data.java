@@ -134,7 +134,7 @@ public class file_data extends JFrame implements ActionListener {
 			BufferedReader name = new BufferedReader(new FileReader(text));
 			str = name.readLine();
 			if (str == null) {
-				setTitle("로그인");
+				setTitle("name");
 				setLocation(620, 355);
 				setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				setLayout(new FlowLayout());
